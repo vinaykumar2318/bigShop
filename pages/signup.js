@@ -21,7 +21,7 @@ const Signup = () => {
     e.preventDefault();
     if(password==conPassword){
       const data = {username:name, email, password, address:'--', pincode:'--', city:'--' , state:'--', phone:'--'};
-      let res = await fetch(`${process.env.NEXT_PUBLIC_HOST}/api/signUp`,{
+      let res = await fetch(`/api/signUp`,{
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

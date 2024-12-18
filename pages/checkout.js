@@ -37,14 +37,14 @@ const Checkout = ({cart,qtyTotal,subTotal,addToCart,removeFromCart,clearCart}) =
       toast.error("🚨 Please enter your valid 6-digit pincode",{duration: 2000, position: 'top-center',});
       return;
     }
-    let pins = await fetch(`${process.env.NEXT_PUBLIC_HOST}/api/pincode`);
+    let pins = await fetch(`/api/pincode`);
     let pinJson = await pins.json();
     if(!Object.keys(pinJson).includes(pin)){
       toast.error('🚨 Your pincode is not servicable',{duration: 2000, position: 'top-center',});
       return;
     }
     const data = {email,id: `${Date.now()}${Math.floor(1000 + Math.random() * 9000)}`,status:status[Math.floor(Math.random()*status.length)],address,pin,city,state,amount:subTotal,products:cart};
-    let res = await fetch(`${process.env.NEXT_PUBLIC_HOST}/api/transaction`,{
+    let res = await fetch(`/api/transaction`,{
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
