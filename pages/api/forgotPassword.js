@@ -24,7 +24,7 @@ const handler= async(req, res)=>{
       
               await forgot.save();
 
-              const resetLink = `forgot?token=${encodeURIComponent(token)}`;
+              const resetLink = `/forgot?token=${encodeURIComponent(token)}`;
       
               const emailBody = `
                 <p>We received a request to reset your password on <strong>bigshop.com</strong>.</p>
