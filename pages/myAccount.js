@@ -94,7 +94,7 @@ const MyAccount = ({logout}) => {
 
   const handlePasswordSubmit = async (e) => {
     e.preventDefault();
-    let data = {passwordData, email}
+    let data = {passwordData, email:user.email}
     if(passwordData.newPassword==passwordData.conNewPassword){
       try {
         const token = localStorage.getItem("token");

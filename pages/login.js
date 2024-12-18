@@ -18,11 +18,7 @@ const Login = () => {
   const handleSubmit = async (e)=>{
     e.preventDefault();
     const data = {email, password};
-<<<<<<< HEAD
-    let res = await fetch(`/api/login`,{
-=======
     let res = await fetch("/api/login",{
->>>>>>> 5a172777081f5a1a3e12878be832ad1947ddb653
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
