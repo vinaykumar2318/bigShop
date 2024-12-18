@@ -5,7 +5,7 @@ var CryptoJS = require("crypto-js");
 
 
 
-export default async function handler(req, res) {
+const handler = async(req, res)=>{
   if (req.method !== "POST") {
     return res.status(405).json({ message: "Method not allowed" });
   }
@@ -34,3 +34,5 @@ export default async function handler(req, res) {
     return res.status(500).json({success:false, message: "Internal Server Error" });
   }
 }
+
+export default connectDb(handler);
