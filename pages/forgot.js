@@ -20,7 +20,7 @@ const Forgot = () => {
 
   const handleResetPassword = async (e) => {
     e.preventDefault();
-    let data = {password, token, sendEmail: false};
+    let data = {password, token};
 
     if (password !== confirmPassword) {
       toast.error("🚨 Password and confirm password must be same",{duration: 2000, position: 'top-center',});
