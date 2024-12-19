@@ -15,6 +15,7 @@ export default function App({ Component, pageProps }) {
   const [progress, setProgress] = useState(0);
 
   const router = useRouter();
+  const isAdminRoute = router.pathname.startsWith("/admin");
 
   useEffect(()=>{
     router.events.on('routeChangeStart', ()=>{
@@ -123,8 +124,8 @@ export default function App({ Component, pageProps }) {
 
   return <>
   <LoadingBar color='#0C82E7' progress={progress} waitingTime={500} onLoaderFinished={()=>setProgress(0)} />
-  {key && <Navbar logout={logout} key={key} user={user} cart={cart} addToCart={addToCart} removeFromCart={removeFromCart} clearCart={clearCart} subTotal={subTotal} qtyTotal={qtyTotal}/>}
+  {!isAdminRoute && key && <Navbar logout={logout} key={key} user={user} cart={cart} addToCart={addToCart} removeFromCart={removeFromCart} clearCart={clearCart} subTotal={subTotal} qtyTotal={qtyTotal}/>}
   <Component {...pageProps} buyNow={buyNow} logout={logout} cart={cart} addToCart={addToCart} removeFromCart={removeFromCart} clearCart={clearCart} subTotal={subTotal} qtyTotal={qtyTotal}/>
-  <Footer/>
+  {!isAdminRoute && <Footer/>}
   </>
 }

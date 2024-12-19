@@ -3,14 +3,13 @@ import connectDb from "../../middleware/mongoose";
 
 const handler = async (req, res) => {
     if(req.method=='POST'){
+        const {formData, id } = req.body;
         try {
-            for (let i = 0; i < req.body.length; i++) {
-                await Product.findByIdAndUpdate(req.body[i]._id, req.body[i]);
-            }
-            res.status(200).json({ success: "Success" });
+            await Product.findByIdAndUpdate(id, formData);
+            res.status(200).json({ success: true});
         } catch (error) {
             console.error("Error updating products:", error);
-            res.status(500).json({ error: "Internal Server Error" });
+            res.status(500).json({ success: false});
         }
     } else{
         console.error("Invalid request method:", req.method);

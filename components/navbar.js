@@ -76,7 +76,7 @@ const Navbar = ({logout,user,cart,addToCart,removeFromCart,clearCart,subTotal,qt
 
   return (
     <div>
-      <header className="text-gray-600 body-font shadow-xl fixed top-0 left-0 w-full z-40 bg-white backdrop-blur-sm bg-opacity-50">
+      <header className="text-gray-600 body-font shadow-xl fixed top-0 left-0 w-full z-40 bg-[#B7D5E2] backdrop-blur-sm bg-opacity-50">
         <div className="container mx-auto flex flex-wrap p-2 flex-col md:flex-row items-center">
           <Link href="/" className="pl-5 flex title-font font-medium items-center md:justify-start justify-center text-gray-900">
             <Image src="/bigShoplogotrim.png" alt="" style={{ borderRadius: '15px'}} width={120} height={50}/>
@@ -144,7 +144,7 @@ const Navbar = ({logout,user,cart,addToCart,removeFromCart,clearCart,subTotal,qt
         </div>
       </header>
 
-      {showSide && <div className={`fixed top-32 sm:top-16 right-0 w-2/3 sm:w-1/3 h-1/2 bg-white shadow-lg rounded-lg overflow-y-auto transform transition-transform duration-500 ${isCartOpen ? 'translate-x-0' : 'translate-x-full'} z-50`} ref={cartRef}>
+      {showSide && <div className={`fixed top-32 sm:top-16 right-0 w-full sm:w-3/5 md:w-2/5 h-1/2 bg-white shadow-lg rounded-lg overflow-y-auto transform transition-transform duration-500 ${isCartOpen ? 'translate-x-0' : 'translate-x-full'} z-50`} ref={cartRef}>
         <div className="p-4 relative">
           <h2 className="text-xl font-bold mb-4">Shopping Cart</h2>
 
@@ -184,8 +184,8 @@ const Navbar = ({logout,user,cart,addToCart,removeFromCart,clearCart,subTotal,qt
             </Link>
           </div>
         </div>
-      </div>}
-
+      </div>
+      }
     </div>
   )
 }

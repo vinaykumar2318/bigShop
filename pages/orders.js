@@ -41,7 +41,7 @@ const Orders = () => {
           }
           setOrders(rawOrders);
         } catch (error) {
-          console.error('Failed to fetch products:', error);
+          console.error('Failed to fetch orders:', error);
         }
       };
       fetchOrders();

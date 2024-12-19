@@ -12,12 +12,12 @@ const handler = async (req, res) => {
                 category : req.body[i].category,
                 size: req.body[i].size,
                 color: req.body[i].color,
-                price: req.body[i].price,
-                availableQty: req.body[i].availableQty,
+                price: parseInt(req.body[i].price),
+                availableQty: parseInt(req.body[i].availableQty),
             })
             await p.save();
         }
-        res.status(200).json({success:"Success"});
+        res.status(200).json({success:true});
     } else{
         res.status(400).json({error:"This method is not allowed"});
     }

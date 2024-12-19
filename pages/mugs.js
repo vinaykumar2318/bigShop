@@ -35,11 +35,11 @@ const Mugs = () => {
   }, []);
 
   return (
-    <div>
+    <div className='mt-36 md:mt-14'>
       <section className="text-gray-600 body-font">
-        <h1 className="text-4xl font-bold text-center text-gray-800 mt-20">Mugs</h1>
+        <h1 className="text-4xl font-bold text-center text-gray-800 pt-10">Mugs</h1>
         <div className="container px-5 py-16 mx-auto" style={{ maxWidth: '1200px' }}>
-          <div className="flex flex-wrap -m-4">
+          <div className="flex flex-wrap -m-4 justify-center">
           {Object.keys(products).map((i) => (
             <Link href={`/product/${products[i].slug}`} key={products[i]._id} passHref className="lg:w-1/4 md:w-1/2 p-4 w-full cursor-pointer shadow-lg" style={{ maxWidth: '297px' }}>
               <div className="block relative h-48 rounded overflow-hidden">
