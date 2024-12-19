@@ -181,7 +181,7 @@ const Products = () => {
         </div>
 
         {showModal && (
-          <div className="fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center z-50" style={{ top: "70px" }}>
+          <div className="fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center z-50">
             <div className="bg-white rounded-lg p-6 w-1/3 max-w-4xl">
               <h2 className="text-2xl font-bold mb-4">
                 {modalType === "add" ? "Add Product" : "Edit Product"}
@@ -287,13 +287,12 @@ const Products = () => {
               </div>
 
               <div className="mt-4">
-                  <button
-                    type="button"
+                  <a
                     onClick={handleCloseModal}
-                    className="bg-gray-300 text-gray-700 px-4 py-2 rounded mr-2"
+                    className="bg-gray-300 text-gray-700 px-4 py-2 rounded mr-2 cursor-pointer"
                   >
                     Cancel
-                  </button>
+                  </a>
                   <button
                     type="submit"
                     className="bg-green-500 text-white px-4 py-2 rounded hover:bg-green-600"
