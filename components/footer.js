@@ -12,7 +12,8 @@ const Footer = () => {
               <Image src="/bigShoplogotrim.png" alt="" style={{ borderRadius: '15px' }} width={200} height={50}/>
             </Link>
             <p className="mt-2 mb-4 text-sm text-gray-500">Your One-Stop Shop for All Your Needs</p>
-            <Link href={'/admin/login'} className='text-xl text-white font-semibold bg-[#0C82E7] p-2 rounded-lg'>Admin</Link>
+            <Link href={'/admin/login'} className='text-xl text-white font-semibold bg-[#0C82E7] p-2 rounded-lg mr-2'>Admin</Link>
+            <Link href={'/contact'} className='text-xl text-white font-semibold bg-[#0C82E7] p-2 rounded-lg'>Contact</Link>
           </div>
           <div className="flex-grow flex flex-wrap md:pl-20 -mb-10 md:mt-0 mt-10 md:text-left text-center">
             <div className="lg:w-1/4 md:w-1/2 w-full px-4">
