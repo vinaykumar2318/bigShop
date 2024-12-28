@@ -135,7 +135,7 @@ const Navbar = ({logout,user,cart,addToCart,removeFromCart,clearCart,subTotal,qt
             {user.value && <div className='relative' ref={accRef}>
               <MdOutlineAccountCircle onClick={toggleIsAcc} className='text-xl md:text-2xl mx-2 cursor-pointer'/>
               {isAcc && (
-                <div className="absolute top-full right-0 mt-2 w-64 bg-white shadow-lg rounded-lg border border-gray-200">
+                <div className="absolute top-full right-0 mt-2 w-48 md:w-64 bg-white shadow-lg rounded-lg border border-gray-200">
                   <div className="p-4">
                     <h3 className="text-lg font-semibold text-gray-900">Account Details</h3>
                     <div className="text-sm text-gray-700">
