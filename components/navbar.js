@@ -11,6 +11,7 @@ import { IoBagCheckOutline, IoBagRemoveOutline, IoLogInOutline} from "react-icon
 const Navbar = ({logout,user,cart,addToCart,removeFromCart,clearCart,subTotal,qtyTotal}) => {
 
   const router = useRouter();
+  const [userCurr, setUserCurr] = useState(null);
   const isLoginPage = router.pathname === '/login';
 
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
@@ -39,7 +40,6 @@ const Navbar = ({logout,user,cart,addToCart,removeFromCart,clearCart,subTotal,qt
   };
 
   const toggleIsAcc = () => {
-    console.log(isAcc);
     setIsAcc(!isAcc);
   };
 
@@ -72,6 +72,28 @@ const Navbar = ({logout,user,cart,addToCart,removeFromCart,clearCart,subTotal,qt
     return () => {
       document.removeEventListener('mousedown', handleClickOutside);
     };
+  }, []);
+
+  useEffect(() => {
+    const fetchUserEmail = async () => {
+      try {
+        const token = localStorage.getItem("token");
+        const res = await fetch("/api/getUser", {
+          method: "GET",
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        });
+        const response = await res.json();
+  
+        if(response.user){
+          setUserCurr(response.user);
+        }
+      } catch (error) {
+        console.error('Error fetching user data:', error);
+      }
+    };
+    fetchUserEmail();
   }, []);
 
   return (
@@ -117,8 +139,8 @@ const Navbar = ({logout,user,cart,addToCart,removeFromCart,clearCart,subTotal,qt
                   <div className="p-4">
                     <h3 className="text-lg font-semibold text-gray-900">Account Details</h3>
                     <div className="text-sm text-gray-700">
-                      <p className="font-medium text-gray-900">John Doe</p>
-                      <p className="text-gray-500">john.doe@example.com</p>
+                      <p className="font-medium text-gray-900">{userCurr?userCurr.username:""}</p>
+                      <p className="text-gray-500">{userCurr?userCurr.email:""}</p>
                     </div>
                   </div>
                   <div className='p-4 border-t border-gray-200 space-y-2'>
